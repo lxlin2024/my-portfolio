@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>贵州村超 AI 短片 · 在线播放</title>
+<style>
+  :root{
+    --bg:#F6F4EC; --ink:#2A2F2C; --sub:#7C8883; --moss:#3F7A68;
+    --teal:#4E8C7A; --gold:#B8934F; --line:#E2DCCB; --card:#FFFDF7;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;min-height:100vh}
+  .topbar{position:sticky;top:0;z-index:20;background:rgba(246,244,236,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .topbar .in{max-width:960px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+  .back{display:inline-flex;align-items:center;gap:8px;color:var(--moss);text-decoration:none;font-size:14px;font-weight:600}
+  .back svg{width:16px;height:16px}
+  .tag{font-size:12px;color:var(--sub);letter-spacing:.12em}
+  .wrap{max-width:960px;margin:0 auto;padding:40px 20px 64px}
+  .kicker{font-size:12px;letter-spacing:.22em;color:var(--gold);font-weight:600;margin-bottom:8px}
+  h1{font-size:26px;font-weight:700;line-height:1.4;margin-bottom:6px}
+  .sub{color:var(--sub);font-size:14px;margin-bottom:28px;line-height:1.7}
+  .player{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:0 6px 24px rgba(42,47,44,.06)}
+  video{width:100%;border-radius:8px;background:#000;display:block}
+  .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .chip{display:inline-flex;align-items:center;gap:6px;background:#EEF2EA;color:var(--moss);border:1px solid #DCE7DC;border-radius:999px;padding:6px 14px;font-size:12.5px;font-weight:600}
+  .actions{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;text-decoration:none;transition:.18s}
+  .btn.dl{background:var(--moss);color:#fff}
+  .btn.dl:hover{background:#356b5b}
+  .btn.src{background:transparent;color:var(--moss);border:1px solid #BCD0C6}
+  .btn.src:hover{background:#EEF2EA}
+  .note{margin-top:26px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:10px;padding:16px 18px;font-size:13px;color:#5A625E;line-height:1.8}
+  .frames{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+  .frames img{width:100%;border-radius:8px;border:1px solid var(--line);aspect-ratio:16/9;object-fit:cover}
+  @media(max-width:640px){.frames{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="in">
+      <a class="back" href="../../index.html">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3L5.5 8l5 5"/></svg>
+        返回作品集
+      </a>
+      <span class="tag">PORTFOLIO · CUNCHAO</span>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="kicker">贵州村超 · AI 文旅传播实验片</div>
+    <h1>《侗族女孩的村超见闻》· 抓住开头 3 秒实验短片</h1>
+    <p class="sub">约 90 秒 AIGC 全流程短片：主播结合贵州村超数据分析，以侗族女孩在赛事举办期间的所见所闻展开叙事。发布至抖音，作为「双层漏斗」传播实验的真实投放样本。</p>
+
+    <div class="player">
+      <video controls preload="metadata" poster="shot_frame.jpg">
+        <source src="村超AI短片_在线预览.mp4" type="video/mp4">
+        您的浏览器不支持视频播放，请下载后本地播放。
+      </video>
+    </div>
+
+    <div class="meta">
+      <span class="chip">时长约 88 秒</span>
+      <span class="chip">AIGC 全流程</span>
+      <span class="chip">侗族少女视角</span>
+      <span class="chip">抖音真实投放</span>
+      <span class="chip">双层漏斗实验样本</span>
+    </div>
+
+    <div class="actions">
+      <a class="btn dl" href="村超AI短片_在线预览.mp4" download>下载 MP4（15 MB）</a>
+      <a class="btn src" href="https://v.douyin.com/c3UoY5wfFHw/" target="_blank">查看抖音原链接</a>
+    </div>
+
+    <div class="note">
+      说明：本片为传播实验阶段的真实投放作品，用于验证「元开头（标题 / 封面）与视频开头（前 3 秒）双层漏斗」的失效假设。完整实验设计、数据与复盘见作品集「抓三秒调研报告」。
+    </div>
+
+    <div class="frames">
+      <img src="shot_frame1.jpg" alt="开场 · 晨雾中的贵州山野">
+      <img src="shot_frame2.jpg" alt="民俗展演 · 芦笙与银饰">
+      <img src="shot_frame3.jpg" alt="村超球场 · 夜间灯火">
+    </div>
+  </div>
+</body>
+</html>

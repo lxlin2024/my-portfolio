@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数据洞察 × AI 驱动的商品运营 · 个人作品集</title>
+<meta name="description" content="数据研究 × AIGC 内容创作个人作品集：社媒聆听研究、健康科普 AI 视频、文旅数据分析与传播实验。">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap">
+<style>
+/* ===== 设计令牌 ===== */
+:root{
+  --paper:#F5F3ED;
+  --paper-2:#EFECE3;
+  --card:#FFFFFF;
+  --ink:#18312B;
+  --ink-2:#2E4740;
+  --ink-3:#4E5F59;
+  --muted:#7C8883;
+  --celadon:#3F7A68;
+  --celadon-soft:#DDE9E2;
+  --celadon-pale:#EDF3EF;
+  --gold:#B8934F;
+  --gold-soft:#EADFC9;
+  --line:rgba(24,49,43,.13);
+  --line-strong:rgba(24,49,43,.28);
+  --serif:"Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"Noto Sans SC", ui-monospace, monospace;
+  --r-lg:20px;
+  --r-md:14px;
+  --r-sm:10px;
+  --shadow:0 1px 2px rgba(24,49,43,.05), 0 12px 32px -18px rgba(24,49,43,.22);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+body{
+  font-family:var(--sans);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+section{scroll-margin-top:72px}
+
+/* ===== 顶部导航 ===== */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  backdrop-filter:blur(10px);
+  background:rgba(245,243,237,.82);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:1120px;margin:0 auto;padding:0 28px;
+  height:62px;display:flex;align-items:center;justify-content:space-between;
+}
+.brand{font-family:var(--serif);font-weight:700;font-size:15px;letter-spacing:.14em;color:var(--ink)}
+.brand i{font-style:normal;color:var(--celadon)}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{font-size:13.5px;letter-spacing:.05em;color:var(--ink-3);transition:color .2s}
+.nav-links a:hover{color:var(--celadon)}
+
+/* ===== Hero ===== */
+.hero{
+  padding:150px 0 72px;position:relative;overflow:hidden;
+}
+.hero .wrap{position:relative;z-index:2}
+.hero-rule{
+  position:absolute;left:0;right:0;bottom:96px;height:1px;background:var(--line);
+  z-index:1;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:center;
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12.5px;letter-spacing:.28em;color:var(--celadon);
+  margin-bottom:22px;font-weight:500;
+}
+.hero-kicker::before{content:"";width:34px;height:1px;background:var(--celadon);opacity:.6}
+.hero h1{
+  font-family:var(--serif);font-weight:900;
+  font-size:clamp(2.4rem,5.6vw,4.2rem);line-height:1.16;letter-spacing:.02em;
+  color:var(--ink);
+}
+.hero h1 .thin{font-weight:500;color:var(--ink-2)}
+.hero-sub{
+  margin-top:22px;font-size:17px;color:var(--ink-3);max-width:34em;
+  font-weight:300;
+}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.tag{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:7px 14px;border-radius:999px;
+  border:1px solid var(--line-strong);font-size:12.5px;letter-spacing:.04em;
+  color:var(--ink-2);background:rgba(255,255,255,.55);
+}
+.tag b{font-weight:600;color:var(--celadon);font-family:var(--mono)}
+.hero-meta{margin-top:34px;display:flex;gap:26px;flex-wrap:wrap}
+.hero-meta div{display:flex;flex-direction:column}
+.hero-meta .num{font-family:var(--serif);font-weight:700;font-size:22px;color:var(--ink)}
+.hero-meta .lab{font-size:11.5px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
+.hero-fig{position:relative}
+.hero-fig img{
+  width:100%;aspect-ratio:4/4.6;object-fit:cover;border-radius:var(--r-lg);
+  box-shadow:var(--shadow);
+}
+.hero-fig::after{
+  content:"";position:absolute;inset:14px -14px -14px 14px;border:1px solid var(--line-strong);
+  border-radius:var(--r-lg);z-index:-1;
+}
+.hero-fig-cap{
+  position:absolute;left:16px;bottom:14px;right:16px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:11px;letter-spacing:.14em;color:#F7F5EF;
+}
+.hero-fig-cap span{background:rgba(24,49,43,.5);padding:4px 10px;border-radius:6px;backdrop-filter:blur(4px)}
+
+/* ===== 章节标题 ===== */
+.sec-head{display:flex;align-items:baseline;gap:18px;margin:0 0 42px}
+.sec-idx{
+  font-family:var(--mono);font-size:13px;letter-spacing:.22em;color:var(--celadon);
+  font-weight:600;
+}
+.sec-title{font-family:var(--serif);font-weight:700;font-size:clamp(1.5rem,3vw,2rem);color:var(--ink)}
+.sec-line{flex:1;height:1px;background:var(--line)}
+.sec-desc{font-size:14px;color:var(--muted);letter-spacing:.02em}
+
+/* ===== 关于 ===== */
+.about{padding:88px 0 20px}
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:52px}
+.about-copy p{color:var(--ink-3);font-size:15.5px;margin-bottom:16px}
+.about-copy p strong{color:var(--ink);font-weight:600}
+.pillars{display:grid;gap:16px}
+.pillar{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:20px 22px;display:flex;gap:18px;align-items:flex-start;
+  transition:transform .25s, box-shadow .25s;
+}
+.pillar:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.pillar .no{
+  font-family:var(--serif);font-weight:700;font-size:18px;color:var(--gold);
+  flex:0 0 auto;line-height:1.2;
+}
+.pillar h3{font-family:var(--serif);font-size:16.5px;color:var(--ink);margin-bottom:5px;font-weight:700}
+.pillar p{font-size:13px;color:var(--muted);line-height:1.65}
+
+/* ===== 项目 ===== */
+.projects{padding:80px 0 24px}
+.proj-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  margin-bottom:26px;overflow:hidden;
+  box-shadow:0 1px 2px rgba(24,49,43,.04);
+}
+.proj-top{
+  display:flex;align-items:center;gap:16px;
+  padding:20px 30px 0;
+}
+.proj-top .kicker{
+  font-size:12px;letter-spacing:.16em;color:var(--celadon);font-weight:600;
+}
+.proj-top .dot{width:4px;height:4px;border-radius:50%;background:var(--line-strong)}
+.proj-top .when{font-size:12px;color:var(--muted);letter-spacing:.06em}
+.proj-top .proj-no{
+  margin-left:auto;font-family:var(--serif);font-weight:900;font-size:30px;color:var(--celadon-pale);
+  letter-spacing:.02em;line-height:1;
+}
+.proj-body{display:grid;grid-template-columns:1.08fr .92fr;gap:0}
+.proj-main{padding:18px 30px 30px}
+.proj-main h2{font-family:var(--serif);font-weight:700;font-size:clamp(1.25rem,2.4vw,1.55rem);color:var(--ink);line-height:1.35;margin-bottom:8px}
+.proj-one{font-size:13.5px;color:var(--muted);margin-bottom:20px;letter-spacing:.01em}
+.proj-block{margin-top:18px}
+.proj-block h4{
+  font-size:12px;letter-spacing:.16em;color:var(--gold);font-weight:600;
+  display:flex;align-items:center;gap:9px;margin-bottom:10px;
+}
+.proj-block h4::after{content:"";flex:1;height:1px;background:var(--line);max-width:40px}
+.work-list{list-style:none}
+.work-list li{
+  position:relative;padding-left:18px;font-size:13.5px;color:var(--ink-3);
+  margin-bottom:7px;line-height:1.65;
+}
+.work-list li::before{
+  content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;border-radius:1px;
+  background:var(--celadon);opacity:.85;transform:rotate(45deg);
+}
+.out-list{display:flex;flex-wrap:wrap;gap:8px}
+.out-list span{
+  font-size:11.5px;padding:4px 10px;border-radius:6px;
+  background:var(--celadon-pale);color:var(--ink-2);border:1px solid rgba(63,122,104,.18);
+}
+.out-list a.dl{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11.5px;padding:5px 11px;border-radius:6px;
+  background:var(--card);color:var(--celadon);font-weight:600;
+  border:1px solid rgba(63,122,104,.4);
+  transition:background .2s,border-color .2s,color .2s,transform .2s;
+  cursor:pointer;
+}
+.out-list a.dl:hover{background:var(--celadon-soft);border-color:var(--celadon);color:var(--ink);transform:translateY(-1px)}
+.out-list a.dl svg{width:11px;height:11px;stroke:var(--celadon);flex:0 0 auto;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.out-list a.dl:hover svg{stroke:var(--ink)}
+.out-list a.pv{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11.5px;padding:5px 11px;border-radius:6px;
+  background:var(--gold-soft);color:#7A5B22;font-weight:600;
+  border:1px solid rgba(184,147,79,.5);
+  transition:background .2s,border-color .2s,color .2s,transform .2s;
+  cursor:pointer;
+}
+.out-list a.pv:hover{background:var(--gold-soft);border-color:var(--gold);color:var(--ink);transform:translateY(-1px)}
+.out-list a.pv svg{width:11px;height:11px;stroke:#7A5B22;flex:0 0 auto;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.out-list a.pv:hover svg{stroke:var(--ink)}
+.skill-list{display:flex;flex-wrap:wrap;gap:7px}
+.skill-list span{
+  font-size:11px;padding:4px 9px;border-radius:999px;
+  border:1px solid var(--line-strong);color:var(--ink-3);
+}
+.proj-side{
+  padding:30px;border-left:1px solid var(--line);
+  background:linear-gradient(180deg, rgba(237,243,239,.6), rgba(245,243,237,0));
+  display:flex;flex-direction:column;gap:20px;
+}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.kpi{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);
+  padding:14px 14px 12px;
+}
+.kpi .v{font-family:var(--serif);font-weight:700;font-size:23px;color:var(--ink);line-height:1.1;letter-spacing:-.01em}
+.kpi .v small{font-size:13px;font-weight:600;color:var(--gold)}
+.kpi .k{font-size:10.5px;color:var(--muted);letter-spacing:.06em;margin-top:5px;line-height:1.4}
+.chart{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:16px 18px 12px;
+}
+.chart-title{font-size:11.5px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px;font-weight:500}
+.chart svg{width:100%;height:auto;display:block}
+.proj-media{border-radius:var(--r-md);overflow:hidden;position:relative}
+.proj-media img{width:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.6,.2,1)}
+.proj-card:hover .proj-media img{transform:scale(1.03)}
+.proj-media .cap{
+  position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;
+  background:linear-gradient(180deg,transparent,rgba(24,49,43,.68));
+  color:#F4F3ED;font-size:11px;letter-spacing:.1em;
+}
+.media-duo{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.media-duo .proj-media{aspect-ratio:4/3}
+.proj-media.main-ratio{aspect-ratio:16/10}
+
+/* ===== 能力 ===== */
+.caps{padding:84px 0 20px}
+.cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.cap-col{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:30px 32px;
+}
+.cap-col h3{font-family:var(--serif);font-weight:700;font-size:19px;color:var(--ink);display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.cap-col h3 .dot{width:9px;height:9px;border-radius:50%;background:var(--celadon);flex:0 0 auto}
+.cap-col h3 .dot.gold{background:var(--gold)}
+.cap-col .sub{font-size:13px;color:var(--muted);margin-bottom:20px}
+.cap-groups{display:grid;gap:16px}
+.cap-group h4{font-size:12px;letter-spacing:.14em;color:var(--ink-3);margin-bottom:8px;font-weight:600}
+.cap-tags{display:flex;flex-wrap:wrap;gap:8px}
+.cap-tags span{
+  font-size:12.5px;padding:6px 12px;border-radius:8px;
+  background:var(--celadon-pale);border:1px solid rgba(63,122,104,.16);color:var(--ink-2);
+}
+
+/* ===== 联系 / 页脚 ===== */
+.contact{padding:96px 0 60px}
+.contact-card{
+  background:var(--ink);border-radius:var(--r-lg);color:#EFF3F0;
+  padding:56px 60px;position:relative;overflow:hidden;
+}
+.contact-card::before{
+  content:"";position:absolute;top:-60px;right:-40px;width:240px;height:240px;border-radius:50%;
+  border:1px solid rgba(198,162,107,.35);
+}
+.contact-card::after{
+  content:"";position:absolute;top:-24px;right:-4px;width:120px;height:120px;border-radius:50%;
+  border:1px solid rgba(198,162,107,.25);
+}
+.contact-card h2{font-family:var(--serif);font-weight:700;font-size:clamp(1.4rem,3vw,1.9rem);margin-bottom:10px}
+.contact-card p{color:#B9C6C0;font-size:14.5px;max-width:30em;font-weight:300}
+.contact-lines{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;position:relative;z-index:1}
+.contact-lines a{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:11px 18px;border-radius:10px;
+  border:1px solid rgba(255,255,255,.22);font-size:13.5px;color:#EFF3F0;
+  transition:background .2s,border-color .2s;
+}
+.contact-lines a:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4)}
+.contact-lines a svg{width:15px;height:15px;stroke:var(--gold)}
+.footer{
+  border-top:1px solid var(--line);padding:26px 0 30px;margin-top:40px;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  color:var(--muted);font-size:12.5px;letter-spacing:.04em;
+}
+.footer .axis{display:flex;align-items:center;gap:8px}
+.axis-line{width:120px;height:1px;background:var(--line-strong);position:relative}
+.axis-line::before{content:"";position:absolute;left:0;top:-2px;width:5px;height:5px;border-radius:50%;background:var(--celadon)}
+.axis-line::after{content:"";position:absolute;right:0;top:-2px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+
+/* ===== 滚动渐入 ===== */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s cubic-bezier(.2,.6,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ===== 响应式 ===== */
+@media (max-width:920px){
+  .hero{padding:120px 0 56px}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-rule{display:none}
+  .about-grid{grid-template-columns:1fr;gap:36px}
+  .proj-body{grid-template-columns:1fr}
+  .proj-side{border-left:0;border-top:1px solid var(--line)}
+  .cap-grid{grid-template-columns:1fr}
+  .contact-card{padding:42px 30px}
+  .nav-links{display:none}
+}
+@media (max-width:560px){
+  .wrap{padding:0 20px}
+  .kpis{grid-template-columns:1fr 1fr}
+  .media-duo{grid-template-columns:1fr}
+  .proj-top{padding:18px 20px 0}
+  .proj-main{padding:16px 20px 26px}
+  .proj-side{padding:22px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 导航 ===== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">作品集<i> · PORTFOLIO</i></a>
+    <div class="nav-links">
+      <a href="#about">关于</a>
+      <a href="#projects">项目</a>
+      <a href="#caps">能力</a>
+      <a href="#contact">联系</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<header class="hero" id="top">
+  <div class="hero-rule"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-kicker">PRODUCT OPERATIONS · 商品运营策略 · 2027 秋招</span>
+        <h1>数据洞察 × <span class="thin">AI 驱动的商品运营</span></h1>
+        <p class="hero-sub">
+          用数据看懂<b>用户需求与市场趋势</b>，以 AI 放大运营效率。
+          我具备社媒 / 用户数据分析与 AIGC 应用能力，可独立完成从<b>需求洞察、选品与趋势分析</b>，到内容生产与策略落地的全流程。
+        </p>
+        <div class="hero-tags">
+          <span class="tag">用户需求洞察 <b>/</b> 社媒聆听</span>
+          <span class="tag">市场趋势 <b>/</b> 选品分析</span>
+          <span class="tag">数据分析 SPSS <b>/</b> Python</span>
+          <span class="tag">AI 应用 <b>/</b> 内容生产</span>
+        </div>
+        <div class="hero-meta">
+          <div><span class="num">4</span><span class="lab">核心项目</span></div>
+          <div><span class="num">13 万+</span><span class="lab">分析数据量级</span></div>
+          <div><span class="num">3 类</span><span class="lab">官方机构 / 国企 / 文旅</span></div>
+        </div>
+      </div>
+      <div class="hero-fig">
+        <img src="hero.png" alt="苗族银饰服饰人物 · 民族风情">
+        <div class="hero-fig-cap">
+          <span>苗族银饰 · 民族风情</span>
+          <span>AIGC · 村超主题</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 关于 ===== -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-idx">01 / ABOUT</span>
+      <h2 class="sec-title">关于我</h2>
+      <span class="sec-line"></span>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p>
+          我是一名在校学生，专业方向为<strong>数据科学 / 数字经济</strong>，同时以<strong>导演、编剧与幕后创作者</strong>的身份，
+          长期使用 AIGC 工具为官方机构、大型企业与文旅 IP 提供研究与创作服务。
+        </p>
+        <p>
+          过去一年，我在导师带领下完成了康希诺疫苗<strong>社会化媒体聆听研究</strong>、
+          北京卫健委<strong>二十四节气健康传播</strong>等项目，并独立完成了贵州村超<strong>文旅数据分析、
+          AI 视频创作与传播复盘实验</strong>，
+          形成了「<strong>数据驱动选题 → 方法驱动分析 → AIGC 驱动产出</strong>」的完整工作流。
+        </p>
+        <p>
+          我的特点：既能做严谨的<strong>定量分析</strong>（SPSS、Python、问卷与标签体系），
+          也能做有审美的<strong>内容创作</strong>（剧本、分镜、IP 形象、成片），
+          并习惯用<strong>复盘实验</strong>验证内容是否真正被看见。
+        </p>
+      </div>
+      <div class="pillars">
+        <div class="pillar reveal">
+          <span class="no">壹</span>
+          <div><h3>数据研究</h3><p>社媒聆听、标签体系设计、问卷调研、SPSS 统计、Python 数据处理，产出可追溯的研究报告。</p></div>
+        </div>
+        <div class="pillar reveal">
+          <span class="no">贰</span>
+          <div><h3>内容创作</h3><p>AI 视频全流程：IP 形象、剧本、分镜、场景图、成片；覆盖节气、健康、文旅与民族题材。</p></div>
+        </div>
+        <div class="pillar reveal">
+          <span class="no">叁</span>
+          <div><h3>工程实现</h3><p>爬虫采集、数据清洗、可视化报告、SPSS 变量转换与报告自动化生成，让数据变成可交付的资产。</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 项目 ===== -->
+<section class="projects" id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-idx">02 / PROJECTS</span>
+      <h2 class="sec-title">代表项目</h2>
+      <span class="sec-line"></span>
+      <span class="sec-desc">三个项目 · 一条主线：先研究清楚，再动手创作</span>
+    </div>
+
+    <!-- 项目 01 康希诺 -->
+    <article class="proj-card reveal">
+      <div class="proj-top">
+        <span class="kicker">品牌研究 · 社媒聆听</span>
+        <span class="dot"></span>
+        <span class="when">2026.02</span>
+        <span class="proj-no">01</span>
+      </div>
+      <div class="proj-body">
+        <div class="proj-main">
+          <h2>康希诺 PCV13 疫苗 · 社会化媒体聆听研究报告</h2>
+          <p class="proj-one">为康希诺 PCV13 新品上市搭建「用户画像 × 决策旅程」数据底座，并输出内容营销与渠道策略。</p>
+
+          <div class="proj-block">
+            <h4>我的工作</h4>
+            <ul class="work-list">
+              <li>构建「用户画像 + 用户决策旅程」四级 / 五级标签体系（基于冰山模型：消费理念 → 育儿理念 → 健康认知 → 自费疫苗接受度）</li>
+              <li>设计 AI 大模型批量文本标注流程，完成全年 6 平台主贴数据的标签化</li>
+              <li>使用 SPSS 完成社媒分布、情感、代际 / 周期交叉分析，输出 v6 分析结果</li>
+              <li>撰写含 75 张数据表的研究报告，并输出全国舆情地域热力图</li>
+            </ul>
+          </div>
+
+          <div class="proj-block">
+            <h4>关键发现</h4>
+            <ul class="work-list">
+              <li>平台「双核驱动」：小红书 46.71% 为口碑主战场，抖音 34.34% 承担广域触达</li>
+              <li>用户决策旅程呈「沙漏模型」：认知 / 推荐两端高、信息搜集中间低</li>
+              <li>Z 世代妈妈「科学 + 社交」双驱动；新品优佩欣陷入「高认知、低转化、弱口碑」断层，据此提出三阶段内容营销策略</li>
+            </ul>
+          </div>
+
+          <div class="proj-block">
+            <h4>产出物</h4>
+            <div class="out-list">
+              <a class="pv" href="files/cansino/康希诺PCV13社媒聆听研究报告_图片预览.html" title="图片逐页在线预览报告（适配内置浏览器）"><svg viewBox="0 0 16 16"><path d="M1.5 8s2.5-4 6.5-4 6.5 4 6.5 4-2.5 4-6.5 4S1.5 8 1.5 8z"/><circle cx="8" cy="8" r="2.2"/></svg>在线预览报告</a>
+              <a class="dl" href="files/cansino/康希诺PCV13社媒聆听研究报告.pdf" download title="下载研究报告 PDF"><svg viewBox="0 0 16 16"><path d="M8 2v8m0 0l-3-3m3 3l3-3M3 12h10"/></svg>下载 PDF</a>
+              <a class="pv" href="files/cansino/标签体系在线Excel.html" title="在线 Excel 预览（本地解析）"><svg viewBox="0 0 16 16"><path d="M1.5 8s2.5-4 6.5-4 6.5 4 6.5 4-2.5 4-6.5 4S1.5 8 1.5 8z"/><circle cx="8" cy="8" r="2.2"/></svg>标签体系 · 在线 Excel</a>
+              <a class="dl" href="files/cansino/PCV标签体系及分析大纲.xlsx" download title="下载标签体系 xlsx"><svg viewBox="0 0 16 16"><path d="M8 2v8m0 0l-3-3m3 3l3-3M3 12h10"/></svg>下载 xlsx</a>
+              <a class="pv" href="files/cansino/舆情热力图.html" title="新标签页预览热力图"><svg viewBox="0 0 16 16"><path d="M1.5 8s2.5-4 6.5-4 6.5 4 6.5 4-2.5 4-6.5 4S1.5 8 1.5 8z"/><circle cx="8" cy="8" r="2.2"/></svg>舆情热力图</a>
+              <span>SPSS 社媒分布分析 v6</span><span>用户画像文档</span>
+            </div>
+          </div>
+
+          <div class="proj-block">
+            <h4>技能</h4>
+            <div class="skill-list">
+              <span>社媒聆听</span><span>标签体系</span><span>SPSS</span><span>Python</span>
+              <span>AI 标注</span><span>报告撰写</span><span>内容营销策略</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-side">
+          <div class="kpis">
+            <div class="kpi"><div class="v">13.5<small> 万</small></div><div class="k">全年有效分析数据（去除杂质后）</div></div>
+            <div class="kpi"><div class="v">6</div><div class="k">主流社媒平台全量采集</div></div>
+            <div class="kpi"><div class="v">5 级</div><div class="k">标签体系深度下钻</div></div>
+          </div>
+          <div class="chart">
+            <div class="chart-title">社媒平台声量分布 · 双核驱动格局</div>
+            <svg viewBox="0 0 340 178" role="img" aria-label="PCV13 疫苗社媒平台声量分布条形图">
+              <g font-size="10" fill="#7C8883" font-family="Noto Sans SC,sans-serif">
+                <text x="0" y="14">小红书</text><text x="0" y="42">抖音</text><text x="0" y="70">微博</text><text x="0" y="98">快手</text><text x="0" y="126">知乎</text><text x="0" y="154">B 站</text>
+              </g>
+              <g>
+                <rect x="66" y="5" width="218" height="13" rx="3" fill="#3F7A68"></rect>
+                <rect x="66" y="33" width="160" height="13" rx="3" fill="#4E8C7A"></rect>
+                <rect x="66" y="61" width="69" height="13" rx="3" fill="#8FB3A4"></rect>
+                <rect x="66" y="89" width="17" height="13" rx="3" fill="#B6CDC3"></rect>
+                <rect x="66" y="117" width="3" height="13" rx="1.5" fill="#CBDCD5"></rect>
+                <rect x="66" y="145" width="2" height="13" rx="1" fill="#CBDCD5"></rect>
+              </g>
+              <g font-size="10" fill="#18312B" font-weight="600" font-family="Noto Sans SC,sans-serif">
+                <text x="290" y="14">46.71%</text><text x="232" y="42">34.34%</text>
+                <text x="141" y="70">14.70%</text><text x="89" y="98">3.60%</text><text x="75" y="126">0.45%</text><text x="74" y="154">0.20%</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 项目 02 立夏 -->
+    <article class="proj-card reveal">
+      <div class="proj-top">
+        <span class="kicker">健康传播 · AI 视频创作</span>
+        <span class="dot"></span>
+        <span class="when">2026.04</span>
+        <span class="proj-no">02</span>
+      </div>
+      <div class="proj-body">
+        <div class="proj-main">
+          <h2>北京卫健委 · 立夏节气健康传播 AI 短视频</h2>
+          <p class="proj-one">以「内容供求匹配」方法驱动二十四节气健康科普，完成从研究选题到 AI 成片的全流程创作。</p>
+
+          <div class="proj-block">
+            <h4>我的工作</h4>
+            <ul class="work-list">
+              <li>搭建「供给—需求—流量」三视角研究：全网舆情监测 + 三平台主贴采集 + 公众问卷 + 平台流量二次校验</li>
+              <li>构建「声量—关注」四象限矩阵，用 Z 值标准化定位内容主题优先级，SPSS 相关分析验证主题关联</li>
+              <li>创作「京小医」IP 剧本文案与分镜脚本（场景画面提示词），完成 AI 视频全流程产出</li>
+              <li>沉淀可复用方法论《内容供求匹配下的健康科普 AI 短视频创作思路》</li>
+            </ul>
+          </div>
+
+          <div class="proj-block">
+            <h4>关键发现</h4>
+            <ul class="work-list">
+              <li>供需错位：中医保健供给 70.66% 但公众关注仅约 23%（低回报），运动健身 / 起居作息为高潜力机会区</li>
+              <li>饮食调理是唯一「声量 + 关注」双高主题（关注 84.95% / 流量 78.51%），为绝对核心流量密码</li>
+              <li>起居作息 ROI 最优（高点赞内容均赞 4,745）；据此确定「饮食 + 运动 + 起居」组合创作方向</li>
+            </ul>
+          </div>
+
+          <div class="proj-block">
+            <h4>产出物</h4>
+            <div class="out-list">
+              <a class="pv" href="files/lixia/立夏内容分析报告_图片预览.html" title="图片逐页在线预览内容分析报告（适配内置浏览器）"><svg viewBox="0 0 16 16"><path d="M1.5 8s2.5-4 6.5-4 6.5 4 6.5 4-2.5 4-6.5 4S1.5 8 1.5 8z"/><circle cx="8" cy="8" r="2.2"/></svg>在线预览报告</a>
+              <a class="dl" href="files/lixia/立夏内容分析报告.pdf" download title="下载内容分析报告 PDF"><svg viewBox="0 0 16 16"><path d="M8 2v8m0 0l-3-3m3 3l3-3M3 12h10"/></svg>下载 PDF</a>
+              <a class="pv" href="files/lixia/立夏方法论_在线预览_图片预览.html" title="图片逐页在线预览方法论文档（适配内置浏览器）"><svg viewBox="0 0 16 16"><path d="M1.5 8s2.5-4 6.5-4 6.5 4 6.5 4-2.5 4-6.5 4S1.5 8 1.5 8z"/><circle cx="8" cy="8" r="2.2"/></svg>在线预览 · 方法论</a>
+              <a class="dl" href="files/lixia/健康科普AI短视频创作思路(方法论).docx" download title="下载方法论文档"><svg viewBox="0 0 16 16"><path d="M8 2v8m0 0l-3-3m3 3l3-3M3 12h10"/></svg>下载 docx</a>
+              <a class="pv" href="files/lixia/立夏剧本文案_在线预览_图片预览.html" title="图片在线预览剧本文案（适配内置浏览器）"><svg viewBox="0 0 16 16"><path d="M1.5 8s2.5-4 6.5-4 6.5 4 6.5 4-2.5 4-6.5 4S1.5 8 1.5 8z"/><circle cx="8" cy="8" r="2.2"/></svg>在线预览 · 剧本文案</a>
+              <a class="dl" href="files/lixia/立夏剧本文案.docx" download title="下载剧本文案"><svg viewBox="0 0 16 16"><path d="M8 2v8m0 0l-3-3m3 3l3-3M3 12h10"/></svg>下载 docx</a>
+              <a class="pv" href="files/lixia/立夏创作方案_在线预览.html" title="在线预览创作方案"><svg viewBox="0 0 16 16"><path d="M1.5 8s2.5-4 6.5-4 6.5 4 6.5 4-2.5 4-6.5 4S1.5 8 1.5 8z"/><circle cx="8" cy="8" r="2.2"/></svg>在线预览 · 创作方案</a>
+              <a class="dl" href="files/lixia/立夏创作方案.md" download title="下载创作方案"><svg viewBox="0 0 16 16"><path d="M8 2v8m0 0l-3-3m3 3l3-3M3 12h10"/></svg>下载 md</a>
+              <span>分镜脚本表</span><span>AI 成片</span><span>反推提示词数据库模板</span>
+            </div>
+          </div>
+
+          <div class="proj-block">
+            <h4>技能</h4>
+            <div class="skill-list">
+              <span>舆情监测</span><span>问卷调研</span><span>IPA 矩阵</span><span>SPSS 相关分析</span>
+              <span>剧本 / 分镜</span><span>IP 设计</span><span>Seedance 视频生成</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-side">
+          <div class="kpis">
+            <div class="kpi"><div class="v">36,429</div><div class="k">全网舆情监测条数（立夏窗口期）</div></div>
+            <div class="kpi"><div class="v">84.95<small>%</small></div><div class="k">饮食调理公众关注度（双高优势主题）</div></div>
+            <div class="kpi"><div class="v">125 份</div><div class="k">公众偏好问卷有效样本</div></div>
+          </div>
+          <div class="chart">
+            <div class="chart-title">公众关注 vs 社媒声量 · 供需错位可见</div>
+            <svg viewBox="0 0 340 190" role="img" aria-label="立夏健康内容主题公众关注与社媒声量对比分组条形图">
+              <g font-size="10" fill="#7C8883" font-family="Noto Sans SC,sans-serif">
+                <text x="0" y="16">饮食调理</text><text x="0" y="56">运动健身</text><text x="0" y="96">起居作息</text><text x="0" y="136">中医保健</text>
+              </g>
+              <g font-size="9.5">
+                <!-- 关注 (celadon) -->
+                <rect x="0" y="24" width="266" height="12" rx="3" fill="#3F7A68"></rect>
+                <text x="272" y="35" fill="#3F7A68" font-weight="600" font-family="Noto Sans SC,sans-serif">关注 84.95%</text>
+                <rect x="0" y="64" width="187" height="12" rx="3" fill="#3F7A68"></rect>
+                <text x="193" y="75" fill="#3F7A68" font-weight="600" font-family="Noto Sans SC,sans-serif">关注 59.59%</text>
+                <rect x="0" y="104" width="163" height="12" rx="3" fill="#3F7A68"></rect>
+                <text x="169" y="115" fill="#3F7A68" font-weight="600" font-family="Noto Sans SC,sans-serif">关注 52.18%</text>
+                <rect x="0" y="144" width="71" height="12" rx="3" fill="#3F7A68"></rect>
+                <text x="77" y="155" fill="#3F7A68" font-weight="600" font-family="Noto Sans SC,sans-serif">关注 22.54%</text>
+              </g>
+              <g font-size="9.5">
+                <!-- 声量 (gold) -->
+                <rect x="0" y="37" width="75" height="10" rx="3" fill="#B8934F"></rect>
+                <text x="81" y="46" fill="#B8934F" font-family="Noto Sans SC,sans-serif">声量 23.94%</text>
+                <rect x="0" y="77" width="13" height="10" rx="3" fill="#B8934F"></rect>
+                <text x="19" y="86" fill="#B8934F" font-family="Noto Sans SC,sans-serif">声量 3.86%</text>
+                <rect x="0" y="117" width="11" height="10" rx="3" fill="#B8934F"></rect>
+                <text x="17" y="126" fill="#B8934F" font-family="Noto Sans SC,sans-serif">声量 3.09%</text>
+                <rect x="0" y="157" width="222" height="10" rx="3" fill="#B8934F"></rect>
+                <text x="228" y="166" fill="#B8934F" font-family="Noto Sans SC,sans-serif">声量 70.66%</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 项目 03 村超（数据研究 × 传播实验，合并"抓住开头3秒"） -->
+    <article class="proj-card reveal">
+      <div class="proj-top">
+        <span class="kicker">文旅研究 · AI 传播实践</span>
+        <span class="dot"></span>
+        <span class="when">2026.05 – 06</span>
+        <span class="proj-no">03</span>
+      </div>
+      <div class="proj-body">
+        <div class="proj-main">
+          <h2>贵州村超 · AI 文旅传播研究与实践</h2>
+          <p class="proj-one">从数据研究到传播验证：先以「三表一洞察」识别村超内容供需错位，再以真实抖音发布实验验证 AI 文旅短视频的传播瓶颈。</p>
+
+          <div class="proj-block">
+            <h4>我的工作 · 数据研究阶段</h4>
+            <ul class="work-list">
+              <li>编写 Python 爬虫采集抖音 / 小红书 / 视频号数据，完成多标签分类与数据处理（Pandas / SPSS .sav）</li>
+              <li>构建「平台流量 × 内容供给 × 受众需求」三表与 IPA 矩阵，量化七主题供需差值</li>
+              <li>输出 P0–P3 算法权重调整方案 + 「文化体验—美食消费—氛围沉浸」三维用户兴趣模型</li>
+              <li>报告 v1→v3 迭代，并产出社媒内容分析报告与短视频内容创作方案</li>
+            </ul>
+          </div>
+
+          <div class="proj-block">
+            <h4>我的工作 · 传播实验阶段（抓住开头 3 秒）</h4>
+            <ul class="work-list">
+              <li>独立制作约 90 秒贵州村超主题 AI 短片（侗族少女视角，AIGC 全流程），并真实发布至抖音</li>
+              <li>设计三角测量法：问卷（n=30）+ 平台真实流量数据 + 同类对标分析，交叉验证</li>
+              <li>提出并验证「双层漏斗」模型：元开头（标题 / 封面）与视频开头（前 3 秒）两层失效叠加</li>
+              <li>完成标题 / 开场重构方案与 5 条可落地优化建议，输出完整复盘报告</li>
+            </ul>
+          </div>
+
+          <div class="proj-block">
+            <h4>关键发现</h4>
+            <ul class="work-list">
+              <li>美食特产 / 文创产品供需差 +60.0%：受众最想要（62.5%）、平台最不推（2.5%），是算法最需介入的蓝海</li>
+              <li>村超正从「体育赛事」向「文旅综合体」价值跃迁；「95 岁侗家奶奶」单条播放 5 亿+，验证人文故事精品孵化路径</li>
+              <li>实验短片 2 秒跳出率 48.60%（优秀线 2.4 倍）、完播率 2.26%，但问卷 100% 正面反馈——被埋没的不是内容，而是内容到达用户的入口</li>
+            </ul>
+          </div>
+
+          <div class="proj-block">
+            <h4>产出物</h4>
+            <div class="out-list">
+              <a class="pv" href="files/cunchao/村超分析报告v3_图片预览.html" title="图片逐页在线预览分析报告 v3（适配内置浏览器）"><svg viewBox="0 0 16 16"><path d="M1.5 8s2.5-4 6.5-4 6.5 4 6.5 4-2.5 4-6.5 4S1.5 8 1.5 8z"/><circle cx="8" cy="8" r="2.2"/></svg>在线预览 · 分析报告 v3</a>
+              <a class="dl" href="files/cunchao/村超AI推荐算法分析报告v3.docx" download title="下载分析报告 v3 docx"><svg viewBox="0 0 16 16"><path d="M8 2v8m0 0l-3-3m3 3l3-3M3 12h10"/></svg>下载 docx</a>
+              <a class="pv" href="files/cunchao/社媒内容分析_在线预览.html" title="网页在线预览社媒内容分析报告"><svg viewBox="0 0 16 16"><path d="M1.5 8s2.5-4 6.5-4 6.5 4 6.5 4-2.5 4-6.5 4S1.5 8 1.5 8z"/><circle cx="8" cy="8" r="2.2"/></svg>在线预览 · 社媒内容分析</a>
+              <a class="dl" href="files/cunchao/村超社媒内容分析报告.md" download title="下载社媒内容分析报告"><svg viewBox="0 0 16 16"><path d="M8 2v8m0 0l-3-3m3 3l3-3M3 12h10"/></svg>下载 md</a>
+              <a class="pv" href="files/cunchao/抓三秒调研报告_图片预览.html" title="图片逐页在线预览「抓住开头3秒」调研报告（适配内置浏览器）"><svg viewBox="0 0 16 16"><path d="M1.5 8s2.5-4 6.5-4 6.5 4 6.5 4-2.5 4-6.5 4S1.5 8 1.5 8z"/><circle cx="8" cy="8" r="2.2"/></svg>在线预览 · 抓三秒调研</a>
+              <a class="dl" href="files/cunchao/村超抓住开头3秒调研报告.docx" download title="下载「抓住开头3秒」调研报告"><svg viewBox="0 0 16 16"><path d="M8 2v8m0 0l-3-3m3 3l3-3M3 12h10"/></svg>下载 docx</a>
+              <a class="pv" href="files/cunchao/村超AI短片_在线预览.html" title="网页在线播放贵州村超 AI 短片"><svg viewBox="0 0 16 16"><path d="M4 3l9 5-9 5z"/></svg>在线播放 · AI 短片</a>
+              <a class="dl" href="files/cunchao/村超AI短片_在线预览.mp4" download title="下载贵州村超 AI 短片 MP4"><svg viewBox="0 0 16 16"><path d="M8 2v8m0 0l-3-3m3 3l3-3M3 12h10"/></svg>下载 MP4</a>
+              <span>Python 脚本（爬虫 / 处理 / 报告生成）</span>
+              <span>问卷数据处理</span><span>AI 推荐权重方案</span><span>双层漏斗模型</span><span>标题 / 开场重构方案</span><span>AI 成片（短视频）</span>
+            </div>
+          </div>
+
+          <div class="proj-block">
+            <h4>技能</h4>
+            <div class="skill-list">
+              <span>Python 爬虫</span><span>数据处理</span><span>SPSS</span><span>IPA 矩阵</span>
+              <span>文旅研究</span><span>传播实验设计</span><span>三角测量</span><span>抖音算法分析</span>
+              <span>AIGC 创作</span><span>数据复盘</span><span>报告迭代</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-side">
+          <div class="kpis">
+            <div class="kpi"><div class="v">+60<small>%</small></div><div class="k">美食特产内容供需差（最大错位）</div></div>
+            <div class="kpi"><div class="v">48.6<small>%</small></div><div class="k">实验短片 2 秒跳出率（优秀线 2.4 倍）</div></div>
+            <div class="kpi"><div class="v">202 条</div><div class="k">三平台合并去重视频数据</div></div>
+            <div class="kpi"><div class="v">3.5 : 1</div><div class="k">内容质量与传播效率错配</div></div>
+          </div>
+          <div class="chart">
+            <div class="chart-title">七主题供需差值 · 文旅体验全面供不应求</div>
+            <svg viewBox="0 0 340 208" role="img" aria-label="贵州村超七内容主题供需差值发散条形图">
+              <line x1="170" y1="6" x2="170" y2="200" stroke="#E2DCCB" stroke-width="1"></line>
+              <g font-size="9.5" fill="#7C8883" font-family="Noto Sans SC,sans-serif">
+                <text x="0" y="18">美食特产</text><text x="0" y="44">民俗文化</text><text x="0" y="70">现场气氛</text><text x="0" y="96">乡村振兴</text><text x="0" y="122">人文故事</text><text x="0" y="148">村超联动</text><text x="0" y="174">足球赛事</text>
+              </g>
+              <g font-size="9" font-family="Noto Sans SC,sans-serif">
+                <rect x="170" y="9" width="120" height="11" rx="3" fill="#3F7A68"></rect><text x="178" y="19" fill="#3F7A68" font-weight="600">+60.0%</text>
+                <rect x="170" y="35" width="74" height="11" rx="3" fill="#3F7A68"></rect><text x="178" y="45" fill="#3F7A68" font-weight="600">+36.8%</text>
+                <rect x="170" y="61" width="70" height="11" rx="3" fill="#3F7A68"></rect><text x="178" y="71" fill="#3F7A68" font-weight="600">+35.1%</text>
+                <rect x="170" y="87" width="41" height="11" rx="3" fill="#8FB3A4"></rect><text x="178" y="97" fill="#4E8C7A" font-weight="600">+20.5%</text>
+                <rect x="170" y="113" width="18" height="11" rx="3" fill="#8FB3A4"></rect><text x="178" y="123" fill="#4E8C7A" font-weight="600">+9.0%</text>
+                <rect x="170" y="139" width="11" height="11" rx="3" fill="#8FB3A4"></rect><text x="178" y="149" fill="#4E8C7A" font-weight="600">+5.2%</text>
+                <rect x="148" y="165" width="22" height="11" rx="3" fill="#B8934F"></rect><text x="118" y="175" fill="#B8934F" font-weight="600" text-anchor="end">-11.0%</text>
+              </g>
+            </svg>
+          </div>
+          <div class="chart">
+            <div class="chart-title">双层漏斗 · 流失发生在两个关卡</div>
+            <svg viewBox="0 0 340 200" role="img" aria-label="双层漏斗模型示意图">
+              <g font-size="10.5" fill="#18312B" font-weight="600" font-family="Noto Sans SC,sans-serif">
+                <text x="170" y="16" text-anchor="middle">信息流 · 0.3–0.8 秒判断</text>
+              </g>
+              <polygon points="40,28 300,28 250,64 90,64" fill="#3F7A68" opacity=".9"></polygon>
+              <text x="170" y="50" text-anchor="middle" font-size="11" fill="#F4F3ED" font-family="Noto Sans SC,sans-serif">第一层 · 元开头（标题 / 封面 / 标签）</text>
+              <g font-size="10" fill="#7C8883" font-family="Noto Sans SC,sans-serif">
+                <text x="308" y="44">筛人</text>
+              </g>
+              <g font-size="10.5" fill="#18312B" font-weight="600" font-family="Noto Sans SC,sans-serif">
+                <text x="170" y="92" text-anchor="middle">点击进入 · 0–2 秒判断</text>
+              </g>
+              <polygon points="90,104 250,104 205,140 135,140" fill="#4E8C7A" opacity=".85"></polygon>
+              <text x="170" y="126" text-anchor="middle" font-size="11" fill="#F4F3ED" font-family="Noto Sans SC,sans-serif">第二层 · 视频开头（前 3 秒）</text>
+              <g font-size="10" fill="#7C8883" font-family="Noto Sans SC,sans-serif">
+                <text x="308" y="122">留人</text>
+              </g>
+              <g font-size="11" fill="#18312B" font-family="Noto Sans SC,sans-serif">
+                <text x="170" y="170" text-anchor="middle">2 秒跳出 48.60%（优秀线 ≤ 20%）</text>
+              </g>
+              <g font-size="11" fill="#18312B" font-family="Noto Sans SC,sans-serif">
+                <text x="170" y="188" text-anchor="middle">完播 2.26%（冷启动门槛 ≥ 40%）</text>
+              </g>
+            </svg>
+          </div>
+          <div class="media-duo">
+            <div class="proj-media"><img src="https://aka.doubaocdn.com/s/84V5Ux6JQ7" alt="村超夜间球场烟火航拍帧"><span class="cap">村超 · 夜间球场</span></div>
+            <div class="proj-media"><img src="https://aka.doubaocdn.com/s/VOVw5bRWTy" alt="村超球场民俗展演同心圆阵型帧"><span class="cap">民俗展演 · 同心圆阵</span></div>
+          </div>
+          <div class="proj-media main-ratio">
+            <img src="https://aka.doubaocdn.com/s/mMQkMKI46k" alt="贵州村超 AI 短片主角：苗族银饰服饰人物帧">
+            <span class="cap">AI 短片帧 · 侗族少女视角开场</span>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== 能力 ===== -->
+<section class="caps" id="caps">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-idx">03 / CAPABILITIES</span>
+      <h2 class="sec-title">能力与工具链</h2>
+      <span class="sec-line"></span>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-col reveal">
+        <h3><span class="dot"></span>数据研究</h3>
+        <p class="sub">从采集到结论，全程可追溯、可复算</p>
+        <div class="cap-groups">
+          <div class="cap-group">
+            <h4>研究方法</h4>
+            <div class="cap-tags">
+              <span>社媒聆听</span><span>标签体系设计</span><span>问卷调研</span><span>IPA / 四象限矩阵</span><span>冰山模型</span><span>三角测量</span><span>相关性分析</span>
+            </div>
+          </div>
+          <div class="cap-group">
+            <h4>分析工具</h4>
+            <div class="cap-tags">
+              <span>SPSS</span><span>Python（Pandas / 爬虫）</span><span>Excel</span><span>AI 大模型批量标注</span><span>舆情热力图</span>
+            </div>
+          </div>
+          <div class="cap-group">
+            <h4>交付形态</h4>
+            <div class="cap-tags">
+              <span>研究报告</span><span>数据看板</span><span>标签库</span><span>策略方案</span><span>可视化图表</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cap-col reveal">
+        <h3><span class="dot gold"></span>内容创作</h3>
+        <p class="sub">让数据结论变成被看见、被记住的内容</p>
+        <div class="cap-groups">
+          <div class="cap-group">
+            <h4>AI 视频全流程</h4>
+            <div class="cap-tags">
+              <span>IP 形象设计</span><span>剧本文案</span><span>分镜脚本</span><span>场景图</span><span>视频生成</span><span>剪辑成片</span>
+            </div>
+          </div>
+          <div class="cap-group">
+            <h4>题材方向</h4>
+            <div class="cap-tags">
+              <span>二十四节气</span><span>健康科普</span><span>文旅 IP</span><span>民族文化</span><span>品牌传播</span>
+            </div>
+          </div>
+          <div class="cap-group">
+            <h4>工具链</h4>
+            <div class="cap-tags">
+              <span>Gemini / GPT-image</span><span>Seedance</span><span>剪映</span><span>Final Cut Pro</span><span>提示词工程</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 联系 ===== -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <h2>一起把数据，做成好内容</h2>
+      <p>如果你需要社媒数据研究、AI 视频创作，或是「先研究、再创作」的完整内容方案，欢迎联系我。</p>
+      <div class="contact-lines">
+        <a href="mailto:m18602612376@163.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
+          m18602612376@163.com
+        </a>
+        <a href="#top">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"></path><path d="M6 10l6 6 6-6"></path></svg>
+          微信：lixin18602612376
+        </a>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="axis"><span class="axis-line"></span><span>个人作品集 · 2026</span></div>
+      <div>数据研究 × AIGC 内容创作 · 服务官方机构 / 企业 / 文旅 IP</div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  // 滚动渐入
+  var els = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    },{threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>

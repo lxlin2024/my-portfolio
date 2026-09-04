@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3aaa442b4396c252c2ee3ea5ee197781 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_3aaa442b4396c252c2ee3ea5ee197781" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_3aaa442b4396c252c2ee3ea5ee197781 = L.map(
+                "map_3aaa442b4396c252c2ee3ea5ee197781",
+                {
+                    center: [35.0, 105.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 4,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+
+            
+
+        
+    
+            var tile_layer_e35e43481620d1815d229d9fd62127f4 = L.tileLayer(
+                "http://webrd02.is.autonavi.com/appmaptile?lang=zh_cn\u0026size=1\u0026scale=1\u0026style=8\u0026x={x}\u0026y={y}\u0026z={z}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u9ad8\u5fb7\u5730\u56fe",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_e35e43481620d1815d229d9fd62127f4.addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+            var heat_map_491c18a5805cac85d934b248ad43f05b = L.heatLayer(
+                [[23.13, 113.28, 9474], [30.27, 120.19, 6546], [36.65, 117.11, 4888], [34.76, 113.67, 4794], [30.67, 104.06, 4338], [32.06, 118.79, 4322], [39.9, 116.41, 3554], [28.12, 112.98, 3205], [38.05, 114.51, 3188], [31.23, 121.49, 2883], [31.86, 117.28, 2784], [30.59, 114.31, 2416], [26.08, 119.3, 2372], [41.8, 123.43, 1833], [28.68, 115.89, 1680], [34.27, 108.95, 1657], [25.04, 102.71, 1415], [29.57, 106.55, 1363], [37.82, 112.53, 1288], [23.39, 108.33, 1189], [26.58, 106.71, 1026], [45.77, 126.53, 894], [39.14, 117.2, 848], [19.54, 110.38, 724], [36.06, 103.82, 693], [43.89, 125.35, 649], [40.82, 111.7, 552], [43.83, 87.62, 551], [22.32, 114.17, 204], [38.47, 106.35, 159], [36.62, 101.78, 83], [30.0, 91.13, 30], [25.05, 121.52, 28], [22.19, 113.54, 21]],
+                {
+  "minOpacity": 0.4,
+  "maxZoom": 12,
+  "radius": 25,
+  "blur": 20,
+  "gradient": {
+  0.0: "#0000ff",
+  0.3: "#00ffff",
+  0.6: "#ffff00",
+  0.8: "#ff8c00",
+  1.0: "#ff0000",
+},
+}
+            );
+        
+    
+            heat_map_491c18a5805cac85d934b248ad43f05b.addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+            var circle_marker_00b79f86f57643487da8c25216d108c3 = L.circleMarker(
+                [23.13, 113.28],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_370653d7bb12fc9ba066763e4e1c1c00 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6807e810d840d015c5d3eb600aa427c8 = $(`<div id="html_6807e810d840d015c5d3eb600aa427c8" style="width: 100.0%; height: 100.0%;">广东: 9474</div>`)[0];
+                popup_370653d7bb12fc9ba066763e4e1c1c00.setContent(html_6807e810d840d015c5d3eb600aa427c8);
+            
+        
+
+        circle_marker_00b79f86f57643487da8c25216d108c3.bindPopup(popup_370653d7bb12fc9ba066763e4e1c1c00)
+        ;
+
+        
+    
+    
+            var circle_marker_5688579508e5049bb7c435957de79176 = L.circleMarker(
+                [30.27, 120.19],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_65fda45c7f4cc774876c1ecbcbb386ea = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_35b6ce017390622d30fddcda8b09b3ac = $(`<div id="html_35b6ce017390622d30fddcda8b09b3ac" style="width: 100.0%; height: 100.0%;">浙江: 6546</div>`)[0];
+                popup_65fda45c7f4cc774876c1ecbcbb386ea.setContent(html_35b6ce017390622d30fddcda8b09b3ac);
+            
+        
+
+        circle_marker_5688579508e5049bb7c435957de79176.bindPopup(popup_65fda45c7f4cc774876c1ecbcbb386ea)
+        ;
+
+        
+    
+    
+            var circle_marker_53ff868f0395fa2fa01ecfdb9e0c1707 = L.circleMarker(
+                [36.65, 117.11],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_d461c951baa3b433f26e849b98318857 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8e9950541f71a8995cf720482751d8f9 = $(`<div id="html_8e9950541f71a8995cf720482751d8f9" style="width: 100.0%; height: 100.0%;">山东: 4888</div>`)[0];
+                popup_d461c951baa3b433f26e849b98318857.setContent(html_8e9950541f71a8995cf720482751d8f9);
+            
+        
+
+        circle_marker_53ff868f0395fa2fa01ecfdb9e0c1707.bindPopup(popup_d461c951baa3b433f26e849b98318857)
+        ;
+
+        
+    
+    
+            var circle_marker_e7723825a186ed8116a42fbc74ce30ad = L.circleMarker(
+                [34.76, 113.67],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_806bbd28389a0770080f0210af31b0bb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e915b29bdbc4e211426cc28eb2954753 = $(`<div id="html_e915b29bdbc4e211426cc28eb2954753" style="width: 100.0%; height: 100.0%;">河南: 4794</div>`)[0];
+                popup_806bbd28389a0770080f0210af31b0bb.setContent(html_e915b29bdbc4e211426cc28eb2954753);
+            
+        
+
+        circle_marker_e7723825a186ed8116a42fbc74ce30ad.bindPopup(popup_806bbd28389a0770080f0210af31b0bb)
+        ;
+
+        
+    
+    
+            var circle_marker_a97477856b9311b8786038bffb3c4be4 = L.circleMarker(
+                [30.67, 104.06],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_b8dd008f6054b7813a50c74526f0de97 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2462f200ac5eba7433ad385c1d51f33d = $(`<div id="html_2462f200ac5eba7433ad385c1d51f33d" style="width: 100.0%; height: 100.0%;">四川: 4338</div>`)[0];
+                popup_b8dd008f6054b7813a50c74526f0de97.setContent(html_2462f200ac5eba7433ad385c1d51f33d);
+            
+        
+
+        circle_marker_a97477856b9311b8786038bffb3c4be4.bindPopup(popup_b8dd008f6054b7813a50c74526f0de97)
+        ;
+
+        
+    
+    
+            var circle_marker_bb5b00f731f63de288af18b2779ec97c = L.circleMarker(
+                [32.06, 118.79],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_37676f5d8ebe7b77bedf21916c245f23 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c29f0dfd48b2f71dd6911a4a418cc296 = $(`<div id="html_c29f0dfd48b2f71dd6911a4a418cc296" style="width: 100.0%; height: 100.0%;">江苏: 4322</div>`)[0];
+                popup_37676f5d8ebe7b77bedf21916c245f23.setContent(html_c29f0dfd48b2f71dd6911a4a418cc296);
+            
+        
+
+        circle_marker_bb5b00f731f63de288af18b2779ec97c.bindPopup(popup_37676f5d8ebe7b77bedf21916c245f23)
+        ;
+
+        
+    
+    
+            var circle_marker_9c3aa5e992d92be0018908ffac0e663a = L.circleMarker(
+                [39.9, 116.41],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_aab14900c8be6d03541dedb574945b5b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a0d8205727d20a7d9ba2726b8a034a10 = $(`<div id="html_a0d8205727d20a7d9ba2726b8a034a10" style="width: 100.0%; height: 100.0%;">北京: 3554</div>`)[0];
+                popup_aab14900c8be6d03541dedb574945b5b.setContent(html_a0d8205727d20a7d9ba2726b8a034a10);
+            
+        
+
+        circle_marker_9c3aa5e992d92be0018908ffac0e663a.bindPopup(popup_aab14900c8be6d03541dedb574945b5b)
+        ;
+
+        
+    
+    
+            var circle_marker_cace65b7bfa0369c42a6b68c0c2aee73 = L.circleMarker(
+                [28.12, 112.98],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_bb337fe5eb03d1055a999995acbf116c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_27bc689e85f8a9336f598380902cab25 = $(`<div id="html_27bc689e85f8a9336f598380902cab25" style="width: 100.0%; height: 100.0%;">湖南: 3205</div>`)[0];
+                popup_bb337fe5eb03d1055a999995acbf116c.setContent(html_27bc689e85f8a9336f598380902cab25);
+            
+        
+
+        circle_marker_cace65b7bfa0369c42a6b68c0c2aee73.bindPopup(popup_bb337fe5eb03d1055a999995acbf116c)
+        ;
+
+        
+    
+    
+            var circle_marker_34f0c8f3ecb0250c95a7d93a9356d9f0 = L.circleMarker(
+                [38.05, 114.51],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_45032498ad4ceb3c6a719604ece2fe8b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f71980a41e18bcfefb504a3373092e8b = $(`<div id="html_f71980a41e18bcfefb504a3373092e8b" style="width: 100.0%; height: 100.0%;">河北: 3188</div>`)[0];
+                popup_45032498ad4ceb3c6a719604ece2fe8b.setContent(html_f71980a41e18bcfefb504a3373092e8b);
+            
+        
+
+        circle_marker_34f0c8f3ecb0250c95a7d93a9356d9f0.bindPopup(popup_45032498ad4ceb3c6a719604ece2fe8b)
+        ;
+
+        
+    
+    
+            var circle_marker_bb030dc50a17d8e07a9848b56195150c = L.circleMarker(
+                [31.23, 121.49],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_3948aa1bdcd697d9cd44be25c35767f2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e91d14fad0de01d7173794c01fff4e55 = $(`<div id="html_e91d14fad0de01d7173794c01fff4e55" style="width: 100.0%; height: 100.0%;">上海: 2883</div>`)[0];
+                popup_3948aa1bdcd697d9cd44be25c35767f2.setContent(html_e91d14fad0de01d7173794c01fff4e55);
+            
+        
+
+        circle_marker_bb030dc50a17d8e07a9848b56195150c.bindPopup(popup_3948aa1bdcd697d9cd44be25c35767f2)
+        ;
+
+        
+    
+    
+            var circle_marker_1ebe8f7b164431058a97614bb16d6964 = L.circleMarker(
+                [31.86, 117.28],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_f20b9164fe9f760a70915a4c1e7fb948 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aee0b9a2f2c2e6d9d3e4f188702d881d = $(`<div id="html_aee0b9a2f2c2e6d9d3e4f188702d881d" style="width: 100.0%; height: 100.0%;">安徽: 2784</div>`)[0];
+                popup_f20b9164fe9f760a70915a4c1e7fb948.setContent(html_aee0b9a2f2c2e6d9d3e4f188702d881d);
+            
+        
+
+        circle_marker_1ebe8f7b164431058a97614bb16d6964.bindPopup(popup_f20b9164fe9f760a70915a4c1e7fb948)
+        ;
+
+        
+    
+    
+            var circle_marker_fa804bdd5625ab8a0056cd8584fd6ea7 = L.circleMarker(
+                [30.59, 114.31],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_4f472eabd6930e4fb21231ba5a973560 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5c8f5af58c5adf391030d4e80315ff06 = $(`<div id="html_5c8f5af58c5adf391030d4e80315ff06" style="width: 100.0%; height: 100.0%;">湖北: 2416</div>`)[0];
+                popup_4f472eabd6930e4fb21231ba5a973560.setContent(html_5c8f5af58c5adf391030d4e80315ff06);
+            
+        
+
+        circle_marker_fa804bdd5625ab8a0056cd8584fd6ea7.bindPopup(popup_4f472eabd6930e4fb21231ba5a973560)
+        ;
+
+        
+    
+    
+            var circle_marker_558bfef0d09d08e00f761338ec2753ab = L.circleMarker(
+                [26.08, 119.3],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_c4b064ab363ae04e055e579f49c801d3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_831551f8f3a22109515d865cec3e0906 = $(`<div id="html_831551f8f3a22109515d865cec3e0906" style="width: 100.0%; height: 100.0%;">福建: 2372</div>`)[0];
+                popup_c4b064ab363ae04e055e579f49c801d3.setContent(html_831551f8f3a22109515d865cec3e0906);
+            
+        
+
+        circle_marker_558bfef0d09d08e00f761338ec2753ab.bindPopup(popup_c4b064ab363ae04e055e579f49c801d3)
+        ;
+
+        
+    
+    
+            var circle_marker_863314330ff114983f9e4727220e1740 = L.circleMarker(
+                [41.8, 123.43],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_400c4a88f8c310e84bda1aa36b2ea676 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b06261f01f58f260f36088c6b9334e22 = $(`<div id="html_b06261f01f58f260f36088c6b9334e22" style="width: 100.0%; height: 100.0%;">辽宁: 1833</div>`)[0];
+                popup_400c4a88f8c310e84bda1aa36b2ea676.setContent(html_b06261f01f58f260f36088c6b9334e22);
+            
+        
+
+        circle_marker_863314330ff114983f9e4727220e1740.bindPopup(popup_400c4a88f8c310e84bda1aa36b2ea676)
+        ;
+
+        
+    
+    
+            var circle_marker_966910ee5b0764e07ad1f63b9e935741 = L.circleMarker(
+                [28.68, 115.89],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_353eeb316b0890dd6c80ee8b224ccbc6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d17ec68bd6800936609a0aaab93f0cc2 = $(`<div id="html_d17ec68bd6800936609a0aaab93f0cc2" style="width: 100.0%; height: 100.0%;">江西: 1680</div>`)[0];
+                popup_353eeb316b0890dd6c80ee8b224ccbc6.setContent(html_d17ec68bd6800936609a0aaab93f0cc2);
+            
+        
+
+        circle_marker_966910ee5b0764e07ad1f63b9e935741.bindPopup(popup_353eeb316b0890dd6c80ee8b224ccbc6)
+        ;
+
+        
+    
+    
+            var circle_marker_2ba2e901e0e7889a813407b68cf9dfb4 = L.circleMarker(
+                [34.27, 108.95],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_0d1d518600f968d22138e5b8bdec80b4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_915c90cd55ab0423aae6f5f9f37083c8 = $(`<div id="html_915c90cd55ab0423aae6f5f9f37083c8" style="width: 100.0%; height: 100.0%;">陕西: 1657</div>`)[0];
+                popup_0d1d518600f968d22138e5b8bdec80b4.setContent(html_915c90cd55ab0423aae6f5f9f37083c8);
+            
+        
+
+        circle_marker_2ba2e901e0e7889a813407b68cf9dfb4.bindPopup(popup_0d1d518600f968d22138e5b8bdec80b4)
+        ;
+
+        
+    
+    
+            var circle_marker_42c5eb3e9ba9ee64f93ebc8977fbce13 = L.circleMarker(
+                [25.04, 102.71],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_0a03a57c744862288b0cdb885038ff14 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_295cba928b6b3c6803a06a37f900c8d0 = $(`<div id="html_295cba928b6b3c6803a06a37f900c8d0" style="width: 100.0%; height: 100.0%;">云南: 1415</div>`)[0];
+                popup_0a03a57c744862288b0cdb885038ff14.setContent(html_295cba928b6b3c6803a06a37f900c8d0);
+            
+        
+
+        circle_marker_42c5eb3e9ba9ee64f93ebc8977fbce13.bindPopup(popup_0a03a57c744862288b0cdb885038ff14)
+        ;
+
+        
+    
+    
+            var circle_marker_f57b148c084afc5dbb04dcd9c8c31676 = L.circleMarker(
+                [29.57, 106.55],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_8ecde95969189d9b77e6e252454bf708 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ace627237e273fbd045a2ac8a47d13dd = $(`<div id="html_ace627237e273fbd045a2ac8a47d13dd" style="width: 100.0%; height: 100.0%;">重庆: 1363</div>`)[0];
+                popup_8ecde95969189d9b77e6e252454bf708.setContent(html_ace627237e273fbd045a2ac8a47d13dd);
+            
+        
+
+        circle_marker_f57b148c084afc5dbb04dcd9c8c31676.bindPopup(popup_8ecde95969189d9b77e6e252454bf708)
+        ;
+
+        
+    
+    
+            var circle_marker_5a696e8ce12335f27784dba4ecb8ab0c = L.circleMarker(
+                [37.82, 112.53],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_8a7475df680215d68e672896817feea4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_02a0d858138e4f1f6e7494d7374ec360 = $(`<div id="html_02a0d858138e4f1f6e7494d7374ec360" style="width: 100.0%; height: 100.0%;">山西: 1288</div>`)[0];
+                popup_8a7475df680215d68e672896817feea4.setContent(html_02a0d858138e4f1f6e7494d7374ec360);
+            
+        
+
+        circle_marker_5a696e8ce12335f27784dba4ecb8ab0c.bindPopup(popup_8a7475df680215d68e672896817feea4)
+        ;
+
+        
+    
+    
+            var circle_marker_e5063e6ecfafc746d6f166f95bee2827 = L.circleMarker(
+                [23.39, 108.33],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_80517098b26110ea2732646e7e292bea = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a554f1f2bec3171aa40c943b48467169 = $(`<div id="html_a554f1f2bec3171aa40c943b48467169" style="width: 100.0%; height: 100.0%;">广西: 1189</div>`)[0];
+                popup_80517098b26110ea2732646e7e292bea.setContent(html_a554f1f2bec3171aa40c943b48467169);
+            
+        
+
+        circle_marker_e5063e6ecfafc746d6f166f95bee2827.bindPopup(popup_80517098b26110ea2732646e7e292bea)
+        ;
+
+        
+    
+    
+            var circle_marker_c836d93639f6bf05d4a61f71317def77 = L.circleMarker(
+                [26.58, 106.71],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_f2e552ead692c5bae3153fe6e250237c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1c2ad8e2ff547c2f1c2e33b5fa126758 = $(`<div id="html_1c2ad8e2ff547c2f1c2e33b5fa126758" style="width: 100.0%; height: 100.0%;">贵州: 1026</div>`)[0];
+                popup_f2e552ead692c5bae3153fe6e250237c.setContent(html_1c2ad8e2ff547c2f1c2e33b5fa126758);
+            
+        
+
+        circle_marker_c836d93639f6bf05d4a61f71317def77.bindPopup(popup_f2e552ead692c5bae3153fe6e250237c)
+        ;
+
+        
+    
+    
+            var circle_marker_4e85092ac201ed21d77d38a41f5554ea = L.circleMarker(
+                [45.77, 126.53],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_e65c1743d9cc933a052d23c4f7f33202 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3749749681096c18c33bf98ccb2075b0 = $(`<div id="html_3749749681096c18c33bf98ccb2075b0" style="width: 100.0%; height: 100.0%;">黑龙江: 894</div>`)[0];
+                popup_e65c1743d9cc933a052d23c4f7f33202.setContent(html_3749749681096c18c33bf98ccb2075b0);
+            
+        
+
+        circle_marker_4e85092ac201ed21d77d38a41f5554ea.bindPopup(popup_e65c1743d9cc933a052d23c4f7f33202)
+        ;
+
+        
+    
+    
+            var circle_marker_653c81aa033267ab3a64ae4641b2cff2 = L.circleMarker(
+                [39.14, 117.2],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_b3c85a585af1d4d2752320bd028bef1b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f31f1e4f502f31b64f0473bf61bdd199 = $(`<div id="html_f31f1e4f502f31b64f0473bf61bdd199" style="width: 100.0%; height: 100.0%;">天津: 848</div>`)[0];
+                popup_b3c85a585af1d4d2752320bd028bef1b.setContent(html_f31f1e4f502f31b64f0473bf61bdd199);
+            
+        
+
+        circle_marker_653c81aa033267ab3a64ae4641b2cff2.bindPopup(popup_b3c85a585af1d4d2752320bd028bef1b)
+        ;
+
+        
+    
+    
+            var circle_marker_c1694a78b7a308d685b7fe53aa34b522 = L.circleMarker(
+                [19.54, 110.38],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_c917178d6b995233903f0b826b06308e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b23ee207f8f1e57e95f7fd8e5e0f8ff0 = $(`<div id="html_b23ee207f8f1e57e95f7fd8e5e0f8ff0" style="width: 100.0%; height: 100.0%;">海南: 724</div>`)[0];
+                popup_c917178d6b995233903f0b826b06308e.setContent(html_b23ee207f8f1e57e95f7fd8e5e0f8ff0);
+            
+        
+
+        circle_marker_c1694a78b7a308d685b7fe53aa34b522.bindPopup(popup_c917178d6b995233903f0b826b06308e)
+        ;
+
+        
+    
+    
+            var circle_marker_10820597056fcb1ac351faacf2e4a299 = L.circleMarker(
+                [36.06, 103.82],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_da87c9885b77b70cc0d10220a21be9bc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_90b757437f20a0c21dce4adbd71d7302 = $(`<div id="html_90b757437f20a0c21dce4adbd71d7302" style="width: 100.0%; height: 100.0%;">甘肃: 693</div>`)[0];
+                popup_da87c9885b77b70cc0d10220a21be9bc.setContent(html_90b757437f20a0c21dce4adbd71d7302);
+            
+        
+
+        circle_marker_10820597056fcb1ac351faacf2e4a299.bindPopup(popup_da87c9885b77b70cc0d10220a21be9bc)
+        ;
+
+        
+    
+    
+            var circle_marker_8d93b646deac8d49996076833e33c2d3 = L.circleMarker(
+                [43.89, 125.35],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_1b64e81c5d75eb4a9a7e0ac9fc4b6b97 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0f620f6283b50060c95895300f858bea = $(`<div id="html_0f620f6283b50060c95895300f858bea" style="width: 100.0%; height: 100.0%;">吉林: 649</div>`)[0];
+                popup_1b64e81c5d75eb4a9a7e0ac9fc4b6b97.setContent(html_0f620f6283b50060c95895300f858bea);
+            
+        
+
+        circle_marker_8d93b646deac8d49996076833e33c2d3.bindPopup(popup_1b64e81c5d75eb4a9a7e0ac9fc4b6b97)
+        ;
+
+        
+    
+    
+            var circle_marker_5fc95cd22d68c88e9477a7d53eeb6f2f = L.circleMarker(
+                [40.82, 111.7],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_b3b20e4eb24d890fe5aa322f84f93d35 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8e7c724fbe12b70cffae14fa8c61d6df = $(`<div id="html_8e7c724fbe12b70cffae14fa8c61d6df" style="width: 100.0%; height: 100.0%;">内蒙古: 552</div>`)[0];
+                popup_b3b20e4eb24d890fe5aa322f84f93d35.setContent(html_8e7c724fbe12b70cffae14fa8c61d6df);
+            
+        
+
+        circle_marker_5fc95cd22d68c88e9477a7d53eeb6f2f.bindPopup(popup_b3b20e4eb24d890fe5aa322f84f93d35)
+        ;
+
+        
+    
+    
+            var circle_marker_6789cbbda9231552840e15781420ff8b = L.circleMarker(
+                [43.83, 87.62],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_f4f43bae1269df5b044e74a491bb262f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_31497b98cfd36adf490b9a6a91fbcd57 = $(`<div id="html_31497b98cfd36adf490b9a6a91fbcd57" style="width: 100.0%; height: 100.0%;">新疆: 551</div>`)[0];
+                popup_f4f43bae1269df5b044e74a491bb262f.setContent(html_31497b98cfd36adf490b9a6a91fbcd57);
+            
+        
+
+        circle_marker_6789cbbda9231552840e15781420ff8b.bindPopup(popup_f4f43bae1269df5b044e74a491bb262f)
+        ;
+
+        
+    
+    
+            var circle_marker_effac61f4117f7a3bc88c09c4131d38d = L.circleMarker(
+                [22.32, 114.17],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_7a6f78b36a6a153ab0801fdbe7037718 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d66d590aeb9088e312f61f46ee59ccda = $(`<div id="html_d66d590aeb9088e312f61f46ee59ccda" style="width: 100.0%; height: 100.0%;">香港: 204</div>`)[0];
+                popup_7a6f78b36a6a153ab0801fdbe7037718.setContent(html_d66d590aeb9088e312f61f46ee59ccda);
+            
+        
+
+        circle_marker_effac61f4117f7a3bc88c09c4131d38d.bindPopup(popup_7a6f78b36a6a153ab0801fdbe7037718)
+        ;
+
+        
+    
+    
+            var circle_marker_1f89308fab553728a5cbcb0c75c30afe = L.circleMarker(
+                [38.47, 106.35],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_476d8b0c336e5aab972d5ddf2689a6f7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ca99d7991f04ac24c4d49f2b398e6e15 = $(`<div id="html_ca99d7991f04ac24c4d49f2b398e6e15" style="width: 100.0%; height: 100.0%;">宁夏: 159</div>`)[0];
+                popup_476d8b0c336e5aab972d5ddf2689a6f7.setContent(html_ca99d7991f04ac24c4d49f2b398e6e15);
+            
+        
+
+        circle_marker_1f89308fab553728a5cbcb0c75c30afe.bindPopup(popup_476d8b0c336e5aab972d5ddf2689a6f7)
+        ;
+
+        
+    
+    
+            var circle_marker_4eca80aafb615a05ac9ffd4d41f3e4ca = L.circleMarker(
+                [36.62, 101.78],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_5bf9e1acb5247d684a2db354308bbfb9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e85aea1b098334e0e311571bad335dd5 = $(`<div id="html_e85aea1b098334e0e311571bad335dd5" style="width: 100.0%; height: 100.0%;">青海: 83</div>`)[0];
+                popup_5bf9e1acb5247d684a2db354308bbfb9.setContent(html_e85aea1b098334e0e311571bad335dd5);
+            
+        
+
+        circle_marker_4eca80aafb615a05ac9ffd4d41f3e4ca.bindPopup(popup_5bf9e1acb5247d684a2db354308bbfb9)
+        ;
+
+        
+    
+    
+            var circle_marker_3e59583f8fbed447aee2b83fa976bf0c = L.circleMarker(
+                [30.0, 91.13],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_8cabda973ff85156e51692e659429516 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_15be8452bfd98a18e15d36135030dfac = $(`<div id="html_15be8452bfd98a18e15d36135030dfac" style="width: 100.0%; height: 100.0%;">西藏: 30</div>`)[0];
+                popup_8cabda973ff85156e51692e659429516.setContent(html_15be8452bfd98a18e15d36135030dfac);
+            
+        
+
+        circle_marker_3e59583f8fbed447aee2b83fa976bf0c.bindPopup(popup_8cabda973ff85156e51692e659429516)
+        ;
+
+        
+    
+    
+            var circle_marker_8602407333df57091392d167bca4fcbf = L.circleMarker(
+                [25.05, 121.52],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_b48aee1ddcead5d43cda93ae52204b1e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c42d67cbcbc2e5501b7262a86b8502e0 = $(`<div id="html_c42d67cbcbc2e5501b7262a86b8502e0" style="width: 100.0%; height: 100.0%;">台湾: 28</div>`)[0];
+                popup_b48aee1ddcead5d43cda93ae52204b1e.setContent(html_c42d67cbcbc2e5501b7262a86b8502e0);
+            
+        
+
+        circle_marker_8602407333df57091392d167bca4fcbf.bindPopup(popup_b48aee1ddcead5d43cda93ae52204b1e)
+        ;
+
+        
+    
+    
+            var circle_marker_426c56de109b74282a18fb2a59a1f2b8 = L.circleMarker(
+                [22.19, 113.54],
+                {"bubblingMouseEvents": true, "color": "#B8143D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#B8143D", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+        
+    
+        var popup_974464c5c2a74a0c17a2f6c66f500560 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_56cbfcaee775107a735a26889c69ab5a = $(`<div id="html_56cbfcaee775107a735a26889c69ab5a" style="width: 100.0%; height: 100.0%;">澳门: 21</div>`)[0];
+                popup_974464c5c2a74a0c17a2f6c66f500560.setContent(html_56cbfcaee775107a735a26889c69ab5a);
+            
+        
+
+        circle_marker_426c56de109b74282a18fb2a59a1f2b8.bindPopup(popup_974464c5c2a74a0c17a2f6c66f500560)
+        ;
+
+        
+    
+    
+            var layer_control_993382d8416fe1fa25dd68720731e70c_layers = {
+                base_layers : {
+                    "\u9ad8\u5fb7\u5730\u56fe" : tile_layer_e35e43481620d1815d229d9fd62127f4,
+                },
+                overlays :  {
+                    "macro_element_491c18a5805cac85d934b248ad43f05b" : heat_map_491c18a5805cac85d934b248ad43f05b,
+                },
+            };
+            let layer_control_993382d8416fe1fa25dd68720731e70c = L.control.layers(
+                layer_control_993382d8416fe1fa25dd68720731e70c_layers.base_layers,
+                layer_control_993382d8416fe1fa25dd68720731e70c_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_3aaa442b4396c252c2ee3ea5ee197781);
+
+        
+    
+            map_3aaa442b4396c252c2ee3ea5ee197781.fitBounds(
+                [[18, 73], [54, 135]],
+                {}
+            );
+        
+</script>
+</html>
