@@ -183,6 +183,11 @@ section{scroll-margin-top:72px}
   display:flex;align-items:center;gap:9px;margin-bottom:10px;
 }
 .proj-block h4::after{content:"";flex:1;height:1px;background:var(--line);max-width:40px}
+.jq-note{font-size:12.5px;color:var(--muted);margin:4px 0 10px}
+.jq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.jq-item video{width:100%;border-radius:10px;display:block;background:#18312B;aspect-ratio:9/16;object-fit:cover;cursor:pointer}
+.jq-name{display:block;text-align:center;font-size:13px;color:var(--ink);margin-top:6px;letter-spacing:.08em}
+@media(max-width:720px){.jq-grid{grid-template-columns:repeat(2,1fr)}}
 .work-list{list-style:none}
 .work-list li{
   position:relative;padding-left:18px;font-size:13.5px;color:var(--ink-3);
@@ -619,6 +624,37 @@ section{scroll-margin-top:72px}
             <div class="skill-list">
               <span>IP 形象设计</span><span>剧本 / 分镜</span><span>AI 视频生成</span><span>Seedance</span>
               <span>提示词工程</span><span>题材选题</span><span>剪辑成片</span>
+            </div>
+          </div>
+
+          <div class="proj-block">
+            <h4>节气系列成片 · 海报 + AI 短片</h4>
+            <p class="jq-note">京小医 IP 二十四节气健康科普系列：每个节气完成一张信息海报与一条 AI 短片，点击海报即可在线播放。</p>
+            <div class="jq-grid">
+              <div class="jq-item">
+                <video controls preload="none" poster="files/jieqi/poster_夏至.jpg" src="files/jieqi/clip_夏至.mp4"></video>
+                <span class="jq-name">夏至</span>
+              </div>
+              <div class="jq-item">
+                <video controls preload="none" poster="files/jieqi/poster_小暑.jpg" src="files/jieqi/clip_小暑.mp4"></video>
+                <span class="jq-name">小暑</span>
+              </div>
+              <div class="jq-item">
+                <video controls preload="none" poster="files/jieqi/poster_大暑.jpg" src="files/jieqi/clip_大暑.mp4"></video>
+                <span class="jq-name">大暑</span>
+              </div>
+              <div class="jq-item">
+                <video controls preload="none" poster="files/jieqi/poster_立秋.jpg" src="files/jieqi/clip_立秋.mp4"></video>
+                <span class="jq-name">立秋</span>
+              </div>
+              <div class="jq-item">
+                <video controls preload="none" poster="files/jieqi/poster_处暑.jpg" src="files/jieqi/clip_处暑.mp4"></video>
+                <span class="jq-name">处暑</span>
+              </div>
+              <div class="jq-item">
+                <video controls preload="none" poster="files/jieqi/poster_白露.jpg" src="files/jieqi/clip_白露.mp4"></video>
+                <span class="jq-name">白露</span>
+              </div>
             </div>
           </div>
         </div>
